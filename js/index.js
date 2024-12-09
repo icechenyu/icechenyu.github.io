@@ -84,7 +84,11 @@
 	var objects = [];
 	var targets = { table: [], sphere: [], helix: [], grid: [] };
 
-	const username = 'chenyu';
+	// 通过域名获取name参数, 域名为 space.com?name=xxx
+	const urlParams = new URLSearchParams(window.location.search);
+    const username = urlParams.get('name');
+	console.log(username);
+
 	var storageBase = `https://speechcopilotstorageasia.blob.core.windows.net/personal/${username}/`;
 
 	init();
@@ -100,6 +104,8 @@
 		// table
 		// table.length设置为图片数量*5
 		var interval = 5;
+		var maxImgs = 10;
+		var j = 0;
 		for ( var i = 0; i < table.length; i += interval ) {
 
 			var element = document.createElement( 'div' );
@@ -107,13 +113,14 @@
 			element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
 
 			// element.style.backgroundImage = 'url("images/small/photo'+ (i/interval + 1) +'.JPG")';
-			var img1 = storageBase + "imgs/img1.jpg";
-			element.style.backgroundImage = `url(${img1})`;
+			var imgIndex = j++ % maxImgs + 1;
+			var imgi = storageBase + `imgs/photo${imgIndex}.jpg`;
+			element.style.backgroundImage = `url(${imgi})`;
 
 			// element.style.backgroundSize = 'cover';
 			element.title = '3D多形态演示相册 - '+ (i/interval + 1) +'/'+ (table.length/interval);
 			// element.setAttribute('href', 'images/small/photo'+ (i/interval + 1) +'.JPG');
-			element.setAttribute('href', img1);
+			element.setAttribute('href', imgi);
 			
 			// var number = document.createElement( 'div' );
 			// number.className = 'number';

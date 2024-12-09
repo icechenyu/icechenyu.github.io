@@ -120,6 +120,6 @@ $(function () {
     };
 
     // $image.css('backgroundImage', 'url("images/media/on' + random() + '.JPG")');
-    var backgroundImage = storageBase + 'imgs/img1.jpg';
+    var backgroundImage = 'images/imgbox/duolaameng.png';
     $image.css('backgroundImage', `url(${backgroundImage})`);
 });
