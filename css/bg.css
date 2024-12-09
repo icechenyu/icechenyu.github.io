@@ -45,7 +45,8 @@
     -ms-border-radius: 50%;
 
     /* background: url('../images/media/on0.jpg') no-repeat top top; */
-    background: url('https://speechcopilotstorageasia.blob.core.windows.net/personal/chenyu/imgs/img1.jpg') no-repeat top top;
+    /* background: url('https://speechcopilotstorageasia.blob.core.windows.net/personal/chenyu/imgs/img1.jpg') no-repeat top top; */
+    background: url('../images/imgbox/duolaameng.png') no-repeat top top;
 }
 
 /*@media (max-width: 1050px) {
