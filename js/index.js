@@ -84,7 +84,24 @@
 	var objects = [];
 	var targets = { table: [], sphere: [], helix: [], grid: [] };
 
-	var storageBase = "https://speechcopilotstorageasia.blob.core.windows.net/personal/chenyu/";
+	const ChenYu = 'chenyu';
+	const XingMei = 'xingmei';
+
+	// 通过域名获取图片的位置, 域名为 space.com/xxx
+	var storageBase = "https://yyy.blob.core.windows.net/xxx/imgs/";
+	const pathParts = window.location.pathname.split('/'); // 获取路径部分
+	var username = pathParts[pathParts.length - 1]; // 假设用户名是路径的第一个部分
+	console.log('username:', username);
+
+	if (username === "index.html") {
+		// local test
+		username = ChenYu;
+	}
+	else if (username !== ChenYu && username !== XingMei) {
+		throw new Error('Invalid username');
+	}
+
+	var storageBase = `https://speechcopilotstorageasia.blob.core.windows.net/personal/${username}/`;
 
 	init();
 	animate();
@@ -95,9 +112,6 @@
 		camera.position.z = 3000;
 
 		scene = new THREE.Scene();
-
-		// 通过域名获取图片的位置, 域名为 xxx.com/{username}
-		// var storageBase = "https://yyy.blob.core.windows.net/{username}/imgs/";
 
 		// table
 		// table.length设置为图片数量*5
