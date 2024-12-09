@@ -114,7 +114,7 @@
 
 			// element.style.backgroundImage = 'url("images/small/photo'+ (i/interval + 1) +'.JPG")';
 			var imgIndex = j++ % maxImgs + 1;
-			var imgi = storageBase + `imgs/img${imgIndex}.jpg`;
+			var imgi = storageBase + `imgs/photo${imgIndex}.jpg`;
 			element.style.backgroundImage = `url(${imgi})`;
 
 			// element.style.backgroundSize = 'cover';
