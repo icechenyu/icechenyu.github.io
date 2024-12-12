@@ -84,12 +84,40 @@
 	var objects = [];
 	var targets = { table: [], sphere: [], helix: [], grid: [] };
 
+	const NamesEnum = {
+		YuXingmei: "yuxingmei",
+		ChenYu: "chenyu",
+		SongYi: "songyi"
+	};
+	const AlbumRecords = {
+		[NamesEnum.ChenYu]: 
+		{
+			maxImgs: 70,
+		},
+		[NamesEnum.YuXingmei]: 
+		{
+			maxImgs: 10,
+		},
+		[NamesEnum.SongYi]: 
+		{
+			maxImgs: 10,
+		},
+	};
+	const StorageBase = "https://speechcopilotstorageasia.blob.core.windows.net/personal/";
+
 	// 通过域名获取name参数, 域名为 space.com?name=xxx
 	const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('name');
-	console.log(username);
-
-	var storageBase = `https://speechcopilotstorageasia.blob.core.windows.net/personal/${username}/`;
+	// whether username is in AlbumRecords 
+	if (!username) {
+		console.error("name parameter is required");
+		throw "name parameter is required";
+	}
+	if (!AlbumRecords[username]) {
+		console.error(`AlbumRecords has no record for ${username}`);
+		throw `AlbumRecords has no record for ${username}`;
+	}
+	const userSetting = AlbumRecords[username];
 
 	init();
 	animate();
@@ -104,7 +132,6 @@
 		// table
 		// table.length设置为图片数量*5
 		var interval = 5;
-		var maxImgs = 10;
 		var j = 0;
 		for ( var i = 0; i < table.length; i += interval ) {
 
@@ -113,8 +140,8 @@
 			element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
 
 			// element.style.backgroundImage = 'url("images/small/photo'+ (i/interval + 1) +'.JPG")';
-			var imgIndex = j++ % maxImgs + 1;
-			var imgi = storageBase + `imgs/photo${imgIndex}.jpg`;
+			var imgIndex = j++ % userSetting.maxImgs + 1;
+			var imgi = StorageBase + `${username}/imgs/photo${imgIndex}.jpg`;
 			element.style.backgroundImage = `url(${imgi})`;
 
 			// element.style.backgroundSize = 'cover';
