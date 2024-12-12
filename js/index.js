@@ -175,8 +175,8 @@
 			//
 
 			var object = new THREE.Object3D();
-			object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
-			object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
+			object.position.x = ( table[ i + 3 ] * 200 ) - 1330;
+			object.position.y = - ( table[ i + 4 ] * 250 ) + 990;
 
 			targets.table.push( object );
 
@@ -236,7 +236,7 @@
 
 			object.position.x = ( ( i % 5 ) * 400 ) - 800;
 			object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
-			object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 2000;
+			object.position.z = ( Math.floor( i / 25 ) ) * 500 - 0;
 
 			targets.grid.push( object );
 
