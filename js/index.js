@@ -87,8 +87,21 @@
 	const NamesEnum = {
 		YuXingmei: "yuxingmei",
 		ChenYu: "chenyu",
-		SongYi: "songyi"
+		SongYi: "songyi",
+		Mstmc: "mstmc"
 	};
+
+	const mstmcNames = [
+		"AllenHao", "AnnHao", "Anna", "AshleyZhang", "BinZuo", 
+		"Bird", "BonnieWang", "ChelseaLi", "Christine", "DaYang", 
+		"EchoZhang", "Garfield", "Gloria", "Haigang", "HongxiaHuang", 
+		"Jane", "JuliaPan", "Parker", "PenglongZhao", "QuMo", 
+		"RichardYu", "SawyerLi", "Sevana", "ShuyiYan", "Sophia", 
+		"SophiaCui", "Stephanie", "TaoLu", "Teddy", "TianjiaoTang", 
+		"ToryXu", "WeixiaoZhang", "XingxingZhang", "YitongLu", "YujiaoWu", 
+		"YuxiaoLu"
+	];
+
 	const AlbumRecords = {
 		[NamesEnum.ChenYu]: 
 		{
@@ -101,6 +114,11 @@
 		[NamesEnum.SongYi]: 
 		{
 			maxImgs: 10,
+		},
+		[NamesEnum.Mstmc]: 
+		{
+			maxImgs: mstmcNames.length,
+			names: mstmcNames,
 		},
 	};
 	const StorageBase = "https://speechcopilotstorageasia.blob.core.windows.net/personal/";
@@ -139,16 +157,26 @@
 			element.className = 'element';
 			element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
 
-			// element.style.backgroundImage = 'url("images/small/photo'+ (i/interval + 1) +'.JPG")';
-			var imgIndex = j++ % userSetting.maxImgs + 1;
-			var imgi = StorageBase + `${username}/imgs/photo${imgIndex}.jpg`;
-			element.style.backgroundImage = `url(${imgi})`;
-
+			var imgIndex = j++ % userSetting.maxImgs;
 			// element.style.backgroundSize = 'cover';
-			element.title = '3D多形态演示相册 - '+ (i/interval + 1) +'/'+ (table.length/interval);
+			// element.style.backgroundImage = 'url("images/small/photo'+ (i/interval + 1) +'.JPG")';
+
+			var imgi = ""
+			if (userSetting.names)
+			{
+				imgi = StorageBase + `${username}/imgs/${userSetting.names[imgIndex]}.jpg`;
+				element.title = `${userSetting.names[imgIndex]} - `+ (i/interval + 1) +'/'+ (table.length/interval);
+			}
+			else
+			{
+				imgi = StorageBase + `${username}/imgs/photo${imgIndex + 1}.jpg`;
+				element.title = '3D多形态演示相册 - '+ (i/interval + 1) +'/'+ (table.length/interval);
+			}
+			element.style.backgroundImage = `url(${imgi})`;
+			
 			// element.setAttribute('href', 'images/small/photo'+ (i/interval + 1) +'.JPG');
 			element.setAttribute('href', imgi);
-			
+
 			// var number = document.createElement( 'div' );
 			// number.className = 'number';
 			// number.textContent = (i/5) + 1;
