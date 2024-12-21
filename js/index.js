@@ -109,7 +109,7 @@
 		},
 		[NamesEnum.YuXingmei]: 
 		{
-			maxImgs: 10,
+			maxImgs: 70,
 		},
 		[NamesEnum.SongYi]: 
 		{
