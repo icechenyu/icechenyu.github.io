@@ -76,6 +76,17 @@
 		"I", "Iodine", "126.90447", 8, 7,
 		"Xe", "Xenon", "#131.293", 9, 7,
 		"Cs", "Caesium", "#132.9054", 10, 7,
+
+		"Ru", "Ruthenium", "#101.07", 1, 8,
+		"Rh", "Rhodium", "#102.9055", 2, 8,
+		"Pd", "Palladium", "#106.42", 3, 8,
+		"Ag", "Silver", "#107.8682", 4, 8,
+		"Cd", "Cadmium", "#112.411", 5, 8,
+		"In", "Indium", "#114.818", 6, 8,
+		"Sn", "Tin", "#118.71", 7, 8,
+		"I", "Iodine", "126.90447", 8, 8,
+		"Xe", "Xenon", "#131.293", 9, 8,
+		"Cs", "Caesium", "#132.9054", 10, 8,
 	];
 
 	var camera, scene, renderer;
@@ -154,12 +165,14 @@
 		"Serxho Preka 帕克",
 		"Simeon Dobrinov Blazhev Nikolov",
 		"Simron Dobrinov Blazhev",
+		"Sophia Cui",
 
 		"Wuyangga",
 
 		"Xinyi",
 
 		"Yang Yizhan",
+		"Yu Xueyuan & Mao Xinyu",
 
 		"Zhang Yiming",
 		"Zhou Qianyu",
@@ -181,6 +194,7 @@
 		"李雪娜",
 		"李雪菲",
 		"王泽茜 Raven Wang",
+		"胡鹤凌",
 		"范伊兰Elaine",
 		"袁慕语",
 		"郑博乔",
@@ -246,7 +260,7 @@
 		// table.length设置为图片数量*5
 		var interval = 5;
 		var j = 0;
-		for ( var i = 0; i < table.length; i += interval ) {
+		for ( var i = 0; i < userSetting.maxImgs * 5; i += interval ) {
 
 			var element = document.createElement( 'div' );
 			element.className = 'element';
@@ -261,12 +275,12 @@
 			{
 				imageName = userSetting.names[imgIndex];
 				imgi = StorageBase + `${username}/imgs/${encodeURIComponent(imageName)}.jpg`;
-				element.title = `${imageName} - `+ (i/interval + 1) +'/'+ (table.length/interval);
+				element.title = `${imageName} - `+ (i/interval + 1) +'/'+ (userSetting.maxImgs);
 			}
 			else
 			{
 				imgi = StorageBase + `${username}/imgs/photo${imgIndex + 1}.jpg`;
-				element.title = '3D多形态演示相册 - '+ (i/interval + 1) +'/'+ (table.length/interval);
+				element.title = '3D多形态演示相册 - '+ (i/interval + 1) +'/'+ (userSetting.maxImgs);
 			}
 			element.style.backgroundImage = `url(${imgi})`;
 			
