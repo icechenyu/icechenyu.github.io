@@ -154,12 +154,14 @@
 		"Serxho Preka 帕克",
 		"Simeon Dobrinov Blazhev Nikolov",
 		"Simron Dobrinov Blazhev",
+		"Sophia Cui",
 
 		"Wuyangga",
 
 		"Xinyi",
 
 		"Yang Yizhan",
+		"Yu Xueyuan & Mao Xinyu",
 
 		"Zhang Yiming",
 		"Zhou Qianyu",
@@ -181,6 +183,7 @@
 		"李雪娜",
 		"李雪菲",
 		"王泽茜 Raven Wang",
+		"胡鹤凌",
 		"范伊兰Elaine",
 		"袁慕语",
 		"郑博乔",
