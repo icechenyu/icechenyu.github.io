@@ -88,7 +88,8 @@
 		YuXingmei: "yuxingmei",
 		ChenYu: "chenyu",
 		SongYi: "songyi",
-		Mstmc: "mstmc"
+		Mstmc: "mstmc",
+		ModelIMF2025: "ModelIMF2025",
 	};
 
 	const mstmcNames = [
@@ -99,8 +100,96 @@
 		"RichardYu", "SawyerLi", "Sevana", "ShuyiYan", "Sophia", 
 		"SophiaCui", "Stephanie", "TaoLu", "Teddy", "TianjiaoTang", 
 		"ToryXu", "WeixiaoZhang", "XingxingZhang", "YitongLu", "YujiaoWu", 
-		"YuxiaoLu",
-		"Cong Test"
+		"YuxiaoLu"
+	];
+	const ModelIMF2025Names = [
+		"ABDUL WAJID KHAN",
+		"Allah Bux Bhatti",
+		"Andy Tan",
+		"Anna",
+		"Annie Ye",
+		
+		"Beshimova Svetlana",
+		"BonnieZou",		
+		"BUHILIQIE",
+
+		"Carolina Fabara",
+		"Chol Peter",
+		"Choolwe Malambo",
+		
+		"Dilanka",
+		"Ding Jiaqi",
+		
+		"Evans",
+
+		"Gosa Mekonnen",
+		"Guo Yuhan",
+
+		"Jia Binbin",
+		"Jiang Yili",
+
+		"Lala",
+		"LI Gen",
+		"Lisa Li",
+		"Lyu Qihong 吕其鸿",
+		
+		"Mao Xinyu 毛歆语",
+		"Marambakudirwa Veryson",
+		"May Thuzar Tin",
+		"MD Talebur Islam",
+		"muhammad Umair",
+
+		"NASHWA MAGUID HAYEL",
+		"NEBA CHAWEZI",
+
+		"obaid ul rehman",
+
+		"pei zhang",
+		"Pierrick",
+
+		"Radwa Aboshady",
+		"Randriamaro Jean Van Juco",
+		"Rao Muhammad",
+
+		"Serxho Preka 帕克",
+		"Simeon Dobrinov Blazhev Nikolov",
+		"Simron Dobrinov Blazhev",
+
+		"Wuyangga",
+
+		"Xinyi",
+
+		"Yang Yizhan",
+
+		"Zhang Yiming",
+		"Zhou Qianyu",
+		"ZouHanshu",
+		
+		"丁清怡",
+		"付彩红",
+		"刘航安",
+		"华曾增",
+		"姜文卓",
+		"孔姝潼",
+		"宁楚楚",
+		"布合丽且",
+
+		"张轶卓 Zhang Yizhuo",
+		"朱悦菱Zhu Yueling",
+		"李书桓",
+		"李玮伦",
+		"李雪娜",
+		"李雪菲",
+		"王泽茜 Raven Wang",
+		"范伊兰Elaine",
+		"袁慕语",
+		"郑博乔",
+		"闫禾",
+		"陈琨晔",
+		"陈睿涵Chen Ruihan",
+		"雷海琪",
+		"韩放",
+		"黄昱翔"
 	];
 
 	const AlbumRecords = {
@@ -120,6 +209,11 @@
 		{
 			maxImgs: mstmcNames.length,
 			names: mstmcNames,
+		},
+		[NamesEnum.ModelIMF2025]: 
+		{
+			maxImgs: ModelIMF2025Names.length,
+			names: ModelIMF2025Names,
 		},
 	};
 	const StorageBase = "https://speechcopilotstorageasia.blob.core.windows.net/personal/";
@@ -165,8 +259,9 @@
 			var imgi = ""
 			if (userSetting.names)
 			{
-				imgi = StorageBase + `${username}/imgs/${encodeURIComponent(userSetting.names[imgIndex])}.jpg`;
-				element.title = `${userSetting.names[imgIndex]} - `+ (i/interval + 1) +'/'+ (table.length/interval);
+				imageName = userSetting.names[imgIndex];
+				imgi = StorageBase + `${username}/imgs/${encodeURIComponent(imageName)}.jpg`;
+				element.title = `${imageName} - `+ (i/interval + 1) +'/'+ (table.length/interval);
 			}
 			else
 			{
