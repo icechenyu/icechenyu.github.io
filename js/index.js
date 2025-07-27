@@ -99,7 +99,8 @@
 		"RichardYu", "SawyerLi", "Sevana", "ShuyiYan", "Sophia", 
 		"SophiaCui", "Stephanie", "TaoLu", "Teddy", "TianjiaoTang", 
 		"ToryXu", "WeixiaoZhang", "XingxingZhang", "YitongLu", "YujiaoWu", 
-		"YuxiaoLu"
+		"YuxiaoLu",
+		"Cong Test"
 	];
 
 	const AlbumRecords = {
@@ -164,7 +165,7 @@
 			var imgi = ""
 			if (userSetting.names)
 			{
-				imgi = StorageBase + `${username}/imgs/${userSetting.names[imgIndex]}.jpg`;
+				imgi = StorageBase + `${username}/imgs/${encodeURIComponent(userSetting.names[imgIndex])}.jpg`;
 				element.title = `${userSetting.names[imgIndex]} - `+ (i/interval + 1) +'/'+ (table.length/interval);
 			}
 			else
